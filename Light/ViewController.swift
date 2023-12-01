@@ -12,13 +12,19 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        updateUI()
     }
 
+    @IBOutlet var lightButton: UIButton!
+    
     fileprivate func updateUI() {
         if lightIsOn {
             view.backgroundColor = .white
+            lightButton.setTitle("Off", for: .normal)
         } else {
             view.backgroundColor = .black
+            lightButton.setTitle("On", for: .normal)
         }
     }
     
