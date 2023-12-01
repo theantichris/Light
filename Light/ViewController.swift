@@ -8,7 +8,11 @@
 import UIKit
 
 class ViewController: UIViewController {
-    var lightIsOn = true
+    enum State {
+        case on, off
+    }
+    
+    var state: State = .on
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -19,17 +23,18 @@ class ViewController: UIViewController {
     @IBOutlet var lightButton: UIButton!
     
     fileprivate func updateUI() {
-        if lightIsOn {
+        switch state {
+        case .on:
             view.backgroundColor = .white
             lightButton.setTitle("Off", for: .normal)
-        } else {
+        case .off:
             view.backgroundColor = .black
             lightButton.setTitle("On", for: .normal)
         }
     }
     
     @IBAction func buttonPressed(_ sender: Any) {
-        lightIsOn.toggle()
+        state = (state == .on) ? .off : .on
         
         updateUI()
     }
