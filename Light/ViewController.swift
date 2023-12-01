@@ -19,18 +19,9 @@ class ViewController: UIViewController {
         
         updateUI()
     }
-
-    @IBOutlet var lightButton: UIButton!
     
     fileprivate func updateUI() {
-        switch state {
-        case .on:
-            view.backgroundColor = .white
-            lightButton.setTitle("Off", for: .normal)
-        case .off:
-            view.backgroundColor = .black
-            lightButton.setTitle("On", for: .normal)
-        }
+        view.backgroundColor = (state == .on) ? .white : .black
     }
     
     @IBAction func buttonPressed(_ sender: Any) {
