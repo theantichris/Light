@@ -14,14 +14,18 @@ class ViewController: UIViewController {
         super.viewDidLoad()
     }
 
-    @IBAction func buttonPressed(_ sender: Any) {
-        lightIsOn.toggle()
-        
+    fileprivate func updateUI() {
         if lightIsOn {
             view.backgroundColor = .white
         } else {
             view.backgroundColor = .black
         }
+    }
+    
+    @IBAction func buttonPressed(_ sender: Any) {
+        lightIsOn.toggle()
+        
+        updateUI()
     }
 }
 
